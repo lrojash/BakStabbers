@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from '../Pages/LandingPage'
+import Profile from '../Pages/Profile'
 
 class Router extends Component {
     constructor() {
@@ -21,6 +22,12 @@ class Router extends Component {
                         path="/"
                         component={(props) => (
                             <LandingPage {...props} />
+                        )}
+                    />
+                    <Route
+                        path="/profile"
+                        component={(props) => (
+                            <Profile {...props} />
                         )}
                     />
                 </Switch>

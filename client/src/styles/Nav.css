@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5em;
+    background-color: rgba(34, 83, 128, 0.829);
+    border-radius: 5%;
+}
+a {
+    padding: 0em 2em 0 2em;
+    color: rgba(255, 255, 255, 0.781);
+    font-size: 25px;
+}
