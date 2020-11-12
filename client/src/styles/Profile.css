@@ -1,0 +1,22 @@
+.profile {
+    height: 50em;
+    width: auto;
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 3;
+}
+.nav{
+    height: 5em;
+    grid-column: span 2;
+}
+.userCard {
+ 
+    width: 50%;
+    grid-row: span 6;
+}
+.feed {
+    border: 2px solid black;
+    width: 50%;
+    grid-row: span 5;
+    margin-top: 5em;
+}

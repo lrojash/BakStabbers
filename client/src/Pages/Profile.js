@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
+import UserCard from '../components/UserCard'
+import '../styles/Profile.css'
 
 export default class Profile extends Component {
     constructor() {
@@ -16,7 +18,10 @@ export default class Profile extends Component {
                 <div className="nav">
                     <NavLink />
                 </div>
-                <h1>profile</h1>
+                <div className="userCard">
+                    <UserCard />
+                </div>
+                <div className="feed">feed</div>
             </div>
         )
     }

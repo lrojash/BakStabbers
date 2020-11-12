@@ -1,0 +1,14 @@
+.user-pic {
+    background-color: rgba(116, 116, 116, 0.719);
+    border-radius: 100%;
+    width: 10em;
+    height: 12em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.picTitle {
+    font-size: large;
+    
+}
