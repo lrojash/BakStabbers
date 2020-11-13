@@ -2,7 +2,7 @@ const { Schema } = require('mongoose')
 
 module.exports = new Schema (
     {
-        comments: {
+        post: {
             type: String,
         },
         user_id:{
