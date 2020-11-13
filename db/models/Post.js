@@ -1,6 +1,5 @@
 const { Schema } = require('mongoose')
 
-
 module.exports = new Schema(
     {
         user_id: {
@@ -11,11 +10,12 @@ module.exports = new Schema(
         stab: {
             type: String,
         },
-        reply: [
+        replies: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'reply'
+                ref: 'replies'
             }
         ]
-    }, { timestamps: true }
+    },
+    { timestamps: true }
 )

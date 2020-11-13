@@ -1,14 +1,16 @@
 const { model } = require('mongoose')
-const UserModel = require('./models/User')
-const PostModel = require('./models/Post')
-const ReplyModel = require('./models/Reply')
 
-const User = model('users', UserModel)
-const Post = model('post_logs', PostModel)
-const Reply = model('Comment', ReplyModel)
+const UserSchema = require('./models/User')
+const PostSchema = require('./models/Post')
+const ReplySchema = require('./models/Reply')
+
+const User = model('users', UserSchema)
+const Reply = model('replies', ReplySchema)
+const Post = model('posts', PostSchema)
+
 
 module.exports = {
     User,
-    Post, 
-    Reply
+    Reply,
+    Post,
 }

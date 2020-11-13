@@ -1,4 +1,5 @@
 const { Schema } = require('mongoose')
+
 module.exports = new Schema(
     {
         name: {
@@ -9,10 +10,6 @@ module.exports = new Schema(
             type: String,
             required: true,
         },
-        // profileImg: {
-        //     type: String,
-        //     required: true,
-        // },
         email: {
             type: String,
             required: true,

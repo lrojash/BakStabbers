@@ -1,14 +1,16 @@
 const { Schema } = require('mongoose')
 
-module.exports = new Schema (
+
+module.exports = new Schema(
     {
         reply: {
             type: String,
+            required: true,
         },
         user_id: {
-            type: Schema.Types.ObjecId,
+            type: Schema.Types.ObjectId,
             ref: 'users'
         }
-
-    }, { timestamps: true }
+    },
+    { timestamps: true }
 )
