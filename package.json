@@ -1,0 +1,24 @@
+{
+  "name": "backStabber",
+  "version": "1.0.0",
+  "description": "## November 9, 2020",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrojash/BakStabbers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lrojash/BakStabbers/issues"
+  },
+  "homepage": "https://github.com/lrojash/BakStabbers#readme",
+  "dependencies": {
+    "faker": "^5.1.0"
+  }
+}

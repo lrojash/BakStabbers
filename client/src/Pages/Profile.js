@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
+import SingleFeed from '../components/SingleFeed'
 import '../styles/Profile.css'
 
 export default class Profile extends Component {
@@ -21,7 +22,9 @@ export default class Profile extends Component {
                 <div className="userCard">
                     <UserCard />
                 </div>
-                <div className="feed">feed</div>
+                <div className="feed">
+                    <SingleFeed />
+                </div>
             </div>
         )
     }

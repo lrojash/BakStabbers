@@ -5,6 +5,14 @@ module.exports = new Schema(
             type: String,
             required: true,
         },
+        dob: {
+            type: String,
+            required: true,
+        },
+        // profileImg: {
+        //     type: String,
+        //     required: true,
+        // },
         email: {
             type: String,
             required: true,

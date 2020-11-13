@@ -5,7 +5,7 @@ const PostModel = require('./models/Post')
 
 const User = model('users', UserModel)
 const PostLog = model('post_logs', PostLogModel)
-const Comment = model('comments', CommentModel)
+const Comment = model('Comment', PostModel)
 
 module.exports = {
     User,

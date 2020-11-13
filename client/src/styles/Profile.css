@@ -10,13 +10,15 @@
     grid-column: span 2;
 }
 .userCard {
- 
+    border: 2px solid black;
     width: 50%;
     grid-row: span 6;
+    padding-left: 1em;
+    padding-bottom: 1em;
 }
 .feed {
     border: 2px solid black;
-    width: 50%;
+    width: 100%;
     grid-row: span 5;
     margin-top: 5em;
 }

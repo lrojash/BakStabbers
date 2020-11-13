@@ -1,12 +1,21 @@
 const { Schema } = require('mongoose')
+const { stringify } = require('querystring')
 
-module.exports = new Schema (
+module.exports = new Schema(
     {
-        post: {
-            type: String,
-        },
-        user_id:{
+        user_id: {
             type: Schema.Types.ObjectId,
-            ref: 'useres'
-        }
-    }, { timestamps: true })
+            ref: 'users'
+        },
+        // what users posts
+        stab: {
+            type: string,
+        },
+        comments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'comments'
+            }
+        ]
+    }
+)
