@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose')
-const { stringify } = require('querystring')
+
 
 module.exports = new Schema(
     {
@@ -9,13 +9,13 @@ module.exports = new Schema(
         },
         // what users posts
         stab: {
-            type: string,
+            type: String,
         },
-        comments: [
+        reply: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'comments'
+                ref: 'reply'
             }
         ]
-    }
+    }, { timestamps: true }
 )
