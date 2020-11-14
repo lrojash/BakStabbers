@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
-import SingleFeed from '../components/SingleFeed'
+import Stab from '../components/Stab'
 import '../styles/Profile.css'
 
 export default class Profile extends Component {
@@ -10,7 +10,7 @@ export default class Profile extends Component {
         super()
         this.state = {
             postFetchError: false,
-            posts:[]
+            posts: []
         }
     }
     render() {
@@ -23,10 +23,11 @@ export default class Profile extends Component {
                     <UserCard />
                 </div>
                 <div className="feed">
-                    <SingleFeed />
+                    feed goes here
+                 
                 </div>
                 <div className="stab">
-                    Stabs here
+                    <Stab />
                 </div>
             </div>
         )

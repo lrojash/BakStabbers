@@ -1,0 +1,15 @@
+.stab-container {
+    display: grid;
+    grid-template-rows: auto auto auto ;
+}
+.stab-container {
+    text-align: center;
+}
+.stab-field {
+    background-color: white;
+    height: 2em;
+    width: auto;   
+}
+input[type="text"]::placeholder{
+    text-align: center;
+}
