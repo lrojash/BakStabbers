@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from '../Pages/LandingPage'
 import Profile from '../Pages/Profile'
+import SignUp from '../Pages/SignUp'
 
 class Router extends Component {
     constructor() {
@@ -28,6 +29,12 @@ class Router extends Component {
                         path="/profile"
                         component={(props) => (
                             <Profile {...props} />
+                        )}
+                    />
+                    <Route
+                        path="/register"
+                        component={(props) => (
+                            <SignUp {...props} />
                         )}
                     />
                 </Switch>
