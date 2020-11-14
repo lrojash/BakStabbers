@@ -1,4 +1,4 @@
-const { User, Post, Follower } = require('../schema')
+const { User, Post } = require('../schema')
 
 const GetProfile = async (req, res) => {
     try {
@@ -9,24 +9,16 @@ const GetProfile = async (req, res) => {
         throw error
     }
 }
-const GetFollowers = async (req, res) => {
-    try {
-        const user = await User.findByID(req.params.user_id).select('_id name')
-        const followers = await Follower.find({ user_id: req.params.user_id }) 
-        res.send({ user, followers })
-    } catch(error) {
-        throw error
-    }
-}
+
 const CreateUser = async (req, res) => {
     try {
         const body = req.body
-        const password_digest = await generatePassword(body.password)
+        // const password_digest = await generatePassword(body.password)
         const user = new User({
             name: body.name,
             email: body.email,
             dob:body.dob,
-            password_digest
+            password_digest:body.password
         })
         user.save()
         res.send(user)
@@ -58,7 +50,6 @@ const SignInUser = async (req, res, next) => {
 
 module.exports = {
     GetProfile,
-    GetFollowers,
     CreateUser,
     SignInUser
 }

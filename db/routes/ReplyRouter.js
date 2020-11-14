@@ -7,10 +7,10 @@ Router.post(
 )
 
 Router.delete(
-    '/:post_id/remove/:comment_id', ReplyController.RemoveReply
+    '/:post_id/remove/:reply_id', ReplyController.RemoveReply
 )
 Router.put(
-    '/:comment_id', ReplyController.EditReply
+    '/:reply_id', ReplyController.EditReply
 )
 
 module.exports = Router
