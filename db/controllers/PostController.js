@@ -1,3 +1,4 @@
+const { post } = require('../models/User')
 const { Post, User, Reply } = require('../schema')
 
 const GetPosts = async (req, res) => {
@@ -43,7 +44,37 @@ const CreatePost = async (req, res) => {
 }
 
 const DeletePost = async (req, res) => {
-    try { } catch (error) {
+    try {
+        await Reply.deleteMany({ _id: { $in: post.replies } })
+        await Post.findByIdAndDelete(req.params.post_id)
+        res.send({ msg: 'Post Deleted' })
+    } catch (error) {
         throw error
     }
+}
+
+const UpdatePost = async (req, res) => {
+    try {
+        await Post.findByIdAndUpdate(
+            req.params.post_id,
+            {
+                ...req.body
+            },
+            {
+                new: true,
+                userFindAndModify: false
+            },
+            (err, (d) => (err ? err : res.send(d)))
+        )
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = {
+    GetPosts,
+    GetPostById,
+    CreatePost,
+    DeletePost,
+    UpdatePost
 }
