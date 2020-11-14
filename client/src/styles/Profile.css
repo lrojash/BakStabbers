@@ -12,7 +12,15 @@
 }
 .feed {
     border: 1px solid green;
+    margin-top: .5em;
+}
+.feed-title{
+    text-align: center;
+    background-color: rgba(34, 83, 128, 0.829);
+    height: 2em;
+    border-radius: 5%;
 }
 .stab {
     border: 1px solid blue;
+    margin-top: 2em;
 }

@@ -13,7 +13,7 @@ export default class Stab extends Component {
 
     render() {
         return (
-            <div class="stab-container">
+            <div className="stab-container">
                 <h2 className="stab-title">Create New Stab</h2>
                 <input
                     className="stab-field"

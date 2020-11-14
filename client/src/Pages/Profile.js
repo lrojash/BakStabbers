@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
-import Stab from '../components/Stab'
+import Stab from '../components/StabInput'
+import Feed from '../components/Feed'
 import '../styles/Profile.css'
 
 export default class Profile extends Component {
@@ -23,8 +24,11 @@ export default class Profile extends Component {
                     <UserCard />
                 </div>
                 <div className="feed">
-                    feed goes here
-                 
+                    <h2 className="feed-title">Feed</h2>
+                    <Feed />
+                    <Feed />
+                    <Feed />
+                    <Feed />
                 </div>
                 <div className="stab">
                     <Stab />

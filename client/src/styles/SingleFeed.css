@@ -1,0 +1,19 @@
+.single-feed{
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+.feed-username{
+    border: 1px solid black;
+    text-align: left;
+    font-size: 20px;
+    
+}
+.feed-stab {
+    border: 1px solid red;
+    text-align: center;
+    font-size: 20px;
+    width: 25em;
+    height: auto;
+}
