@@ -25,6 +25,9 @@ export default class Profile extends Component {
                 <div className="feed">
                     <SingleFeed />
                 </div>
+                <div className="stab">
+                    Stabs here
+                </div>
             </div>
         )
     }
