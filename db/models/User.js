@@ -19,7 +19,13 @@ module.exports = new Schema(
         password_digest: {
             type: String,
             required: true,
-        }
+        },
+        followers: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'user'
+            }
+        ]
 
     },
     { timestamps: true }

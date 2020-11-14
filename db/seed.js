@@ -1,14 +1,14 @@
 const faker = require('faker')
 const connection = require('./connection')
 const { Types } = require('mongoose')
-const { User, Post, Reply } = require('./schema')
+const { User, Post, Reply, Follower } = require('./schema')
 
 const users = new Array(50).fill().map(() => ({
   _id: Types.ObjectId(),
   name: `${faker.name.firstName()} ${faker.name.lastName()}`,
   email: faker.internet.email(),
   password_digest: faker.random.word(),
-  dob: faker.date.between('1900-01-01', '2002-01-01')
+  dob: faker.date.between('1900-01-01', '2002-01-01'),
 }))
 
 const replies = new Array(500).fill().map(() => ({
@@ -29,11 +29,14 @@ const posts = new Array(100).fill().map(() => ({
   user_id: users[Math.floor(Math.random() * users.length)]._id
 }))
 
+
+
 const seed = async () => {
   await connection.connect
   await User.insertMany(users)
   await Post.insertMany(posts)
   await Reply.insertMany(replies)
+
   await connection.disconnect
   process.exit()
 }
