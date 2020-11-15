@@ -6,72 +6,84 @@ export default class SignUp extends Component {
     constructor() {
         super()
         this.state = {
-            name: '',
+            firstName: '',
+            userName: '',
             email: '',
             dob: '',
-            password: ''
-        }
-    }
+            password: '',
 
-    handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value })
-    }
-    handleSubmit = async(e) => {
-        e.preventDefault()
-        try{
-            await __RegisterUser(this.state)
-            this.props.history.push('/login')
-        } catch(error) {
-            console.log(error) 
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    receiveProps(nextProps) {
+        if (nextProps.signedIn === true) {
+            this.props.history.push('/login')
+        }
+
+    }
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
+    }
+    handleSubmit(e) {
+        e.preventDefault()
+        let user= {
+            name: this.state.name,
+            userName: this.state.userName,
+            email: this.state.email,
+            dob: this.state.dob,
+            password: this.state.password,
+        }
+        this.props.signup(user, this.props.history)
     }
 
     render() {
-        const { name, password, email, dob } = this.state
+        const { name, password, email, dob, userName } = this.state
         return (
             <div class="mainPage">
                 <div className="intro">
                     <h1 className="title">Join to Experience the Fun</h1>
                     <h3 className="subheader">A place to let it all hang loose</h3>
-                    <p className="description">Due to the nature of the content only those 
+                    <p className="description">Due to the nature of the content only those
                     over the age of 18 may access the site. (please don't turn into the media and lie >:(
                     </p>
                 </div>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <TextInput
-                        placeholder="First Name"
+                        placeholder="Name"
                         name="name"
                         type="name"
                         value={name}
-                        onChange={this.handleChange}
+                        onChange={this.update('name')}
                     />
                     <TextInput
-                        placeholder="Last Name"
+                        placeholder="Username"
                         name="name"
                         type="name"
-                        value={name}
-                        onChange={this.handleChange}
+                        value={userName}
+                        onChange={this.update('userName')}
                     />
                     <TextInput
                         placeholder="Email"
                         name="email"
                         type="email"
                         value={email}
-                        onChange={this.handleChange}
+                        onChange={this.update('email')}
                     />
                     <TextInput
                         placeholder="Password"
                         name="password"
                         type="password"
                         value={password}
-                        onChange={this.handleChange}
+                        onChange={this.update('password')}
                     />
                     <TextInput
                         placeholder="Date of Birth"
                         name="date"
                         type="date"
                         value={dob}
-                        onChange={this.handleChange}
+                        onChange={this.update('dob')}
                     />
                     <div className="buttons">
                         <button className="singup">Sign Up</button>
