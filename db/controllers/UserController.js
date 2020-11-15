@@ -1,4 +1,10 @@
+const { request } = require('express')
 const { User, Post } = require('../schema')
+const jwt = require('jsonwebtoken')
+const {
+    checkPassword,
+    generatePassword,
+} = require('../../middleware/PasswordHandler')
 
 const GetProfile = async (req, res) => {
     try {
@@ -13,13 +19,13 @@ const GetProfile = async (req, res) => {
 const CreateUser = async (req, res) => {
     try {
         const body = req.body
-        // const password_digest = await generatePassword(body.password)
+        const password_digest = await generatePassword(body.password)
         const user = new User({
             name: body.name,
             email: body.email,
             dob: body.dob,
-            password_digest: body.password_digest,
-            userName: body.userName
+            userName: body.userName,
+            password_digest
         })
         user.save()
         res.send(user)
@@ -30,10 +36,7 @@ const CreateUser = async (req, res) => {
 const SignInUser = async (req, res, next) => {
     try {
         const user = await User.findOne({ email: req.body.email })
-
-        if (
-            user &&
-            (await checkPassword(req.body.password, user.password_digest))
+        if (user && (await checkPassword(req.body.password, user.password_digest))
         ) {
             const payload = {
                 _id: user._id,
@@ -47,10 +50,19 @@ const SignInUser = async (req, res, next) => {
         throw error
     }
 }
+const RefreshSession = (req, res) => {
+    try {
+        const token = res.locals.token
+        res.send({ user: jwt.decode(token), token: res.locals.token })
+    } catch (error) {
+        throw error
+    }
+}
 
 
 module.exports = {
     GetProfile,
     CreateUser,
-    SignInUser
+    SignInUser,
+    RefreshSession,
 }
