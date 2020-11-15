@@ -7,30 +7,34 @@ export default class Feed extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            staabs :[]
+            staabs: []
         }
     }
 
     componentDidMount() {
-        this.fetchPosts()
+        this.getPosts()
     }
-
-    fetchPosts = async() => {
-        const posts = await __GetPosts()
-        this.setState({ posts: posts })
+    getPosts = async () => {
+        try {
+            const staabs = await __GetPosts()
+            this.setState({ stabs: [...this.state.staabs, ...staabs] })
+        } catch (error) {
+            throw error
+        }
     }
     render() {
-        if (this.state.staabs.length === 0) {
+        const { staabs } = this.state
+        if (staabs.length === 0) {
             return (<div>There are no Staabs currently.{'\n'}
             Stab Away!</div>)
         } else {
             return (
                 <div>
                     <h2> All Stabs </h2>
-                    {this.state.staabs.map(stab => (
-                        <StabBox key={stab._id} text={stab.text} />
-                    ))}
-                   
+                    <SingleFeed
+                        key={stab.id}
+                        onClick={() => this.props.history.push(`/posts/${post._id}`)}
+                    />
                 </div>
             )
         }
