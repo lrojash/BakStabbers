@@ -17,8 +17,8 @@ const CreateUser = async (req, res) => {
         const user = new User({
             name: body.name,
             email: body.email,
-            dob:body.dob,
-            password_digest:body.password
+            dob: body.dob,
+            password_digest: body.password
         })
         user.save()
         res.send(user)

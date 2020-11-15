@@ -20,6 +20,10 @@ module.exports = new Schema(
             type: String,
             required: true,
         },
+        userName: {
+            type: String,
+            required: true,
+        },
         followers: [
             {
                 type: Schema.Types.ObjectId,
