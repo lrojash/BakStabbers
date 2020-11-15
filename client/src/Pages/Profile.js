@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
-import Stab from '../components/StabInput'
+import Stab from '../components/Stabs/StabInput'
 import Feed from '../components/Feed'
 import '../styles/Profile.css'
 
