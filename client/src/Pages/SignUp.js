@@ -10,7 +10,7 @@ export default class SignUp extends Component {
             userName: '',
             email: '',
             dob: '',
-            password: '',
+            password_digest: '',
 
         }
     }
@@ -23,14 +23,14 @@ export default class SignUp extends Component {
         e.preventDefault()
         try {
             await __RegisterUser(this.state)
-            this.props.history.push('/login')
+            this.props.history.push('/')
         } catch(error) {
             throw error 
         }
     }
 
     render() {
-        const { name, password, email, dob, userName } = this.state
+        const { name, password_digest, email, dob, userName } = this.state
         return (
             <div class="mainPage">
                 <div className="intro">
@@ -64,9 +64,9 @@ export default class SignUp extends Component {
                     />
                     <TextInput
                         placeholder="Password"
-                        name="password"
+                        name="password_digest"
                         type="password"
-                        value={password}
+                        value={password_digest}
                         onChange={this.handleChange}
                     />
                     <TextInput

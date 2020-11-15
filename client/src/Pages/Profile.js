@@ -4,6 +4,7 @@ import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
 import Stab from '../components/Stabs/StabInput'
 import Feed from '../components/Stabs/Feed'
+import { __GetProfile } from '../services/UserService'
 import '../styles/Profile.css'
 
 export default class Profile extends Component {
@@ -12,6 +13,17 @@ export default class Profile extends Component {
         this.state = {
             postFetchError: false,
             staabs: []
+        }
+    }
+    componentDidMount() {
+        this.getStaabs()
+    }
+    getStaabs = async() => {
+        try {
+            const profileData = await __GetProfile(this.props.currentUser._id)
+            this.setState({ staabs: profileData.posts})
+        } catch(error) {
+            this.setState({ postFetchError: true })
         }
     }
 

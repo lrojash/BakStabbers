@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import TextInput from '../components/TextInput'
 import '../styles/LandingPage.css'
-// import SignUp from '../Pages/SignUp'
+import { __LoginUser } from '../services/UserService'
 
 
 export default class LandingPage extends Component {
@@ -13,8 +12,12 @@ export default class LandingPage extends Component {
             password: '',
             formError: false
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
+
+    handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value, formError: false})
+    }
+
     receiveProps(nextProps) {
         if (nextProps.currentUser === true) {
             this.props.history.push('/staabs')
@@ -64,7 +67,7 @@ export default class LandingPage extends Component {
                     />
                     <div className="buttons">
                         <button className="singin">Sign In</button>
-                        <button className="singup">Sign Up</button>
+                        {/* <button className="singup">Sign Up</button> */}
                     </div>
                 </form>
             </div >
