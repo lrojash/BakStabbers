@@ -6,36 +6,27 @@ export default class SignUp extends Component {
     constructor() {
         super()
         this.state = {
-            firstName: '',
+            name: '',
             userName: '',
             email: '',
             dob: '',
             password: '',
 
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
-    receiveProps(nextProps) {
-        if (nextProps.signedIn === true) {
-            this.props.history.push('/login')
-        }
+    handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value})
+    }
 
-    }
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        })
-    }
-    handleSubmit(e) {
+
+    handleSubmit = async(e) => {
         e.preventDefault()
-        let user= {
-            name: this.state.name,
-            userName: this.state.userName,
-            email: this.state.email,
-            dob: this.state.dob,
-            password: this.state.password,
+        try {
+            await __RegisterUser(this.state)
+            this.props.history.push('/login')
+        } catch(error) {
+            throw error 
         }
-        this.props.signup(user, this.props.history)
     }
 
     render() {
@@ -55,35 +46,35 @@ export default class SignUp extends Component {
                         name="name"
                         type="name"
                         value={name}
-                        onChange={this.update('name')}
+                        onChange={this.handleChange}
                     />
                     <TextInput
                         placeholder="Username"
-                        name="name"
-                        type="name"
+                        name="userName"
+                        type="userName"
                         value={userName}
-                        onChange={this.update('userName')}
+                        onChange={this.handleChange}
                     />
                     <TextInput
                         placeholder="Email"
                         name="email"
                         type="email"
                         value={email}
-                        onChange={this.update('email')}
+                        onChange={this.handleChange}
                     />
                     <TextInput
                         placeholder="Password"
                         name="password"
                         type="password"
                         value={password}
-                        onChange={this.update('password')}
+                        onChange={this.handleChange}
                     />
                     <TextInput
-                        placeholder="Date of Birth"
-                        name="date"
-                        type="date"
+                        placeholder="Date of Birth(mm/dd/yyyy)"
+                        name="dob"
+                        type="dob"
                         value={dob}
-                        onChange={this.update('dob')}
+                        onChange={this.handleChange}
                     />
                     <div className="buttons">
                         <button className="singup">Sign Up</button>
