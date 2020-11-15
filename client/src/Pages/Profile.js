@@ -3,17 +3,18 @@ import TextInput from '../components/TextInput'
 import NavLink from '../components/Nav'
 import UserCard from '../components/UserCard'
 import Stab from '../components/Stabs/StabInput'
-import Feed from '../components/Feed'
+import Feed from '../components/Stabs/Feed'
 import '../styles/Profile.css'
 
 export default class Profile extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             postFetchError: false,
-            posts: []
+            staabs: []
         }
     }
+
     render() {
         return (
             <div className="profile">
@@ -25,9 +26,6 @@ export default class Profile extends Component {
                 </div>
                 <div className="feed">
                     <h2 className="feed-title">Feed</h2>
-                    <Feed />
-                    <Feed />
-                    <Feed />
                     <Feed />
                 </div>
                 <div className="stab">

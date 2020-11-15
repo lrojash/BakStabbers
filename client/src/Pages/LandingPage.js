@@ -13,14 +13,26 @@ export default class LandingPage extends Component {
             password: '',
             formError: false
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value, formError: false })
-        console.log(this.state)
+    receiveProps(nextProps) {
+        if (nextProps.currentUser === true) {
+            this.props.history.push('/staabs')
+        }
+        this.setState({ formError: nextProps.formError })
     }
-    handleSubmitSignIn = () => { }
-    handleChange = () => { 
-        return <Redirect to="/register"/>
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let user = {
+            email: this.state.email,
+            password: this.state.email
+        }
+        this.props.login(user)
     }
 
     render() {
@@ -35,24 +47,24 @@ export default class LandingPage extends Component {
                     as you can read your AWESOME ideas!
                     </p>
                 </div>
-                <form className="form" onSubmit={this.handleChange}>
+                <form className="form" onSubmit={this.handleSubmit}>
                     <TextInput
                         placeholder="email"
                         name="email"
                         type="email"
                         value={email}
-                        onChange={this.handleChange}
+                        onChange={this.update('email')}
                     />
                     <TextInput
                         placeholder="Password"
                         name="password"
                         type="password"
                         value={password}
-                        onChange={this.handleChange}
+                        onChange={this.update('password')}
                     />
                     <div className="buttons">
                         <button className="singin">Sign In</button>
-                        <button className="singup" onClick={this.handleSubmitSignUP}>Sign Up</button>
+                        <button className="singup">Sign Up</button>
                     </div>
                 </form>
             </div >

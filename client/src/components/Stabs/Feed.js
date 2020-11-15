@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import StabBox from './StabBox'
+import SingleFeed from './SingleFeed'
 
 export default class Feed extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            staabs =[]
+            staabs :[]
         }
     }
-    componentDidMount() {
-    }
+    // componentDidMount() {
+    // }
 
     receiveProps(newState) {
         this.setState({ staabs: newState.staabs })
@@ -25,8 +26,9 @@ export default class Feed extends Component {
                 <div>
                     <h2> All Stabs </h2>
                     {this.state.staabs.map(stab => (
-                        <StabBox key={index} text={stab.text} />
+                        <StabBox key={stab._id} text={stab.text} />
                     ))}
+                   
                 </div>
             )
         }

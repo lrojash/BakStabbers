@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/SingleFeed.css'
+import '../../styles/SingleFeed.css'
 
 export default (props) => (
     <div className="single-feed">
