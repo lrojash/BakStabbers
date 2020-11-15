@@ -17,25 +17,13 @@ export default class LandingPage extends Component {
     handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value, formError: false})
     }
-
-    receiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/staabs')
-        }
-        this.setState({ formError: nextProps.formError })
-    }
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        })
-    }
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
-        let user = {
-            email: this.state.email,
-            password: this.state.email
+        let userData = {
+            email:this.state.email,
+            password: this.state.password 
         }
-        this.props.login(user)
+        const user = await __LoginUser(userData)
     }
 
     render() {
@@ -56,17 +44,17 @@ export default class LandingPage extends Component {
                         name="email"
                         type="email"
                         value={email}
-                        onChange={this.update('email')}
+                        onChange={this.handleChange}
                     />
                     <TextInput
                         placeholder="Password"
                         name="password"
                         type="password"
                         value={password}
-                        onChange={this.update('password')}
+                        onChange={this.handleChange}
                     />
                     <div className="buttons">
-                        <button className="singin">Sign In</button>
+                        <button type="submit" className="singin">Sign In</button>
                         {/* <button className="singup">Sign Up</button> */}
                     </div>
                 </form>

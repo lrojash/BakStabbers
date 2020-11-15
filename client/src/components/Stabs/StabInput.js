@@ -1,56 +1,47 @@
 import React, { Component } from 'react'
-import StabBox from './StabBox'
+import { __UploadPost } from '../../services/PostService'
+import TextInput from '../TextInput'
 import '../../styles/Stab.css'
 
 export default class StabInput extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            text: '',
-            newStab: ''
+            stab: '',
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleReceiveProps = (nextProps) => {
-        this.setState({ newStab: nextProps.newStab.text })
+    handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value })
     }
-
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
-        let stab = {
-            text: this.state.text
+        try {
+            await __UploadPost(this.state, this.props.currentUser._id)
+            this.props.history.push('/profile')
+        } catch (error) {
+            throw error
         }
-        // this will send the stab to the databasexs
-        // this.props.composeStab(stab)
-        this.setState({text: ''})
-    }
-
-    update = () => {
-        return (
-            e => this.setState({
-                text: e.currentTarget.value
-            })
-        )
     }
 
     render() {
+        const { stab } = this.state
         return (
             <div className="stab-container">
                 <h2 className="stab-title">Create New Stab</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input
+                    <TextInput
                         className="stab-field"
-                        type='textarea'
                         placeholder="Stab"
-                        value={this.state.text}
-                        onChange={this.update()}>
-                    </input>
+                        name="stab"
+                        value={stab}
+                        onChange={this.handleChange}
+                    />
                     <button onClick={this.handleSubmit}>
                         post
                 </button>
                 </form>
-                <StabBox text={this.state.newStab} />
+                {/* <StabBox text={this.state.newStab} /> */}
             </div>
         )
     }

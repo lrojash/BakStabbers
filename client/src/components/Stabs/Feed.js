@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import StabBox from './StabBox'
 import SingleFeed from './SingleFeed'
+import { __GetPosts } from '../../services/PostService'
 
 export default class Feed extends Component {
     constructor(props) {
@@ -10,13 +10,15 @@ export default class Feed extends Component {
             staabs :[]
         }
     }
-    // componentDidMount() {
-    // }
 
-    receiveProps(newState) {
-        this.setState({ staabs: newState.staabs })
+    componentDidMount() {
+        this.fetchPosts()
     }
 
+    fetchPosts = async() => {
+        const posts = await __GetPosts()
+        this.setState({ posts: posts })
+    }
     render() {
         if (this.state.staabs.length === 0) {
             return (<div>There are no Staabs currently.{'\n'}
