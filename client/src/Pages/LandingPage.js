@@ -15,15 +15,16 @@ export default class LandingPage extends Component {
     }
 
     handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value, formError: false})
+        this.setState({ [target.name]: target.value, formError: false })
     }
     handleSubmit = async (e) => {
         e.preventDefault()
-        let userData = {
-            email:this.state.email,
-            password: this.state.password 
+        try {
+            const loginData = await __LoginUser(this.state)
+            this.props.toggleAuthenticated(true, loginData.user, () => this.props.history.push('/profile'))
+        } catch (error) {
+            this.setState({ formError: true })
         }
-        const user = await __LoginUser(userData)
     }
 
     render() {
@@ -54,7 +55,8 @@ export default class LandingPage extends Component {
                         onChange={this.handleChange}
                     />
                     <div className="buttons">
-                        <button type="submit" className="singin">Sign In</button>
+                        <button >Sign In</button>
+                        {this.state.formError ? <p>Error while logging in</p> : <p></p>}
                         {/* <button className="singup">Sign Up</button> */}
                     </div>
                 </form>

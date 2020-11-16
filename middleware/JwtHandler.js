@@ -24,7 +24,7 @@ const createToken = (req, res) => {
     res.send({ user: res.locals.payload, token })
 }
 
-modudle.exports = {
+module.exports = {
     createToken,
     verifyToken,
     getToken,

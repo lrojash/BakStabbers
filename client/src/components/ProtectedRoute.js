@@ -7,6 +7,6 @@ export default ({ authenticated, children, component: Component, ...rest }) => {
             {console.log(authenticated)}
         </Route>
     ) : (
-            <Redirect to="/" />
+            <Redirect to="/" /> 
         )
 }

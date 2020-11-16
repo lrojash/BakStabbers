@@ -1,9 +1,9 @@
 const { request } = require('express')
-const { User, Post } = require('../schema')
+const { User, Post } = require('../../db/schema')
 const jwt = require('jsonwebtoken')
 const {
     checkPassword,
-    generatePassword,
+    generatePassword
 } = require('../../middleware/PasswordHandler')
 
 const GetProfile = async (req, res) => {
@@ -33,10 +33,14 @@ const CreateUser = async (req, res) => {
         throw error
     }
 }
+
 const SignInUser = async (req, res, next) => {
     try {
         const user = await User.findOne({ email: req.body.email })
-        if (user && (await checkPassword(req.body.password, user.password_digest))
+
+        if (
+            user &&
+            (await checkPassword(req.body.password, user.password_digest))
         ) {
             const payload = {
                 _id: user._id,
@@ -50,6 +54,7 @@ const SignInUser = async (req, res, next) => {
         throw error
     }
 }
+
 const RefreshSession = (req, res) => {
     try {
         const token = res.locals.token

@@ -15,5 +15,5 @@ const checkPassword = async (sentPassword, storedPassword) => {
 
 module.exports = {
     generatePassword,
-    checkPassword,
+    checkPassword
 }
