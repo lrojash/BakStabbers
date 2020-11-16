@@ -64,12 +64,6 @@ class Router extends Component {
                                 )}
                             />
                             <Route
-                                path="/profile"
-                                component={(props) => (
-                                    <Profile {...props} />
-                                )}
-                            />
-                            <Route
                                 path="/register"
                                 component={(props) => (
                                     <SignUp {...props} />
@@ -97,4 +91,4 @@ class Router extends Component {
     }
 }
 
-export default Router
+export default withRouter(Router)

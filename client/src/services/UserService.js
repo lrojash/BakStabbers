@@ -11,7 +11,17 @@ export const __GetProfile = async (userId) => {
 
 export const __RegisterUser = async (formData) => {
     try {
-        const res = await ApiClient.post(`/users/register`, formData)
+        const res = await ApiClient.post('/users/register', formData)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const __CheckSession = async () => {
+    try {
+        const res = await ApiClient.get('/users/refresh/session')
+        console.log(res.data)
         return res.data
     } catch (error) {
         throw error
@@ -20,15 +30,8 @@ export const __RegisterUser = async (formData) => {
 
 export const __LoginUser = async (userData) => {
     try {
-        const res = await ApiClient.post(`/users/login`, userData)
-        return res.data
-    } catch (error) {
-        throw error
-    }
-}
-export const __CheckSession = async () => {
-    try {
-        const res = await ApiClient.get('/users/refresh/session')
+        const res = await ApiClient.post('/users/login', userData)
+        localStorage.setItem('token', res.data.token)
         return res.data
     } catch (error) {
         throw error
