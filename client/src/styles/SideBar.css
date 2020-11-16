@@ -1,0 +1,11 @@
+.SideBar-Container{
+    flex: .2;
+    border:2px solid black;
+
+    display:flex;
+    flex-direction: column;
+}
+
+.SideBar-Home {
+    margin-bottom: 5em;
+}

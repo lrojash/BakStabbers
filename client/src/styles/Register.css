@@ -1,0 +1,16 @@
+.SingUp-Container {
+    display: flex;
+    flex-direction: column;
+    height:62em;
+    align-items: center;
+    justify-content: center;
+}
+.intro {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10em;
+}
+.description{
+    margin-top: 2em;
+}

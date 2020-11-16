@@ -1,0 +1,48 @@
+.Register-Form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 25em;
+    margin-top: -10em;
+    text-align: center;
+}
+
+.Sign-Up-Button {
+    border-radius: 3%;
+    height: 2em;
+    width: auto;
+    background-color: rgba(2, 135, 243, 0.703);
+    font-size: 25px;
+}
+
+.Sign-Up-Button:hover {
+    background-color: rgb(139, 205, 205);
+    color: rgb(140, 140, 236);
+    cursor: pointer;
+}
+
+form input,
+form textarea {
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 0.8em 0.5em;
+  transition: all 0.2s;
+  font-size: 1.3rem;
+  font-family: 'Open Sans';
+  text-align: center;
+  border-radius: 5%;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 1.3rem;
+  transition: all 0.2s;
+  text-align: center;
+}

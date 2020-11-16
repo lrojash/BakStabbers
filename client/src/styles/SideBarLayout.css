@@ -1,0 +1,18 @@
+.SideBar-Layout {
+    display: flex;
+    align-items: center;
+}
+
+.Sidebar-Text {
+    margin-left: 1em;
+}
+
+.SideBar-Layout:hover {
+    display: flex;
+    align-items: center;
+    background-color: rgb(139, 205, 205);
+    border-radius: 10%;
+    padding: .5em;
+    color: rgb(140, 140, 236);
+    cursor: pointer
+}

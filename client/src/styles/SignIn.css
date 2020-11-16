@@ -1,0 +1,16 @@
+.form{
+    display:flex;
+    flex-direction: column;
+}
+.Sign-In {
+    border-radius:3%;
+    height:2em;
+    width:12em;
+    background-color: rgba(2, 135, 243, 0.703);
+    font-size: 25px;
+}
+.Sign-In:hover {
+    background-color: rgb(139, 205, 205);
+    color: rgb(140, 140, 236);
+    cursor: pointer;
+}
