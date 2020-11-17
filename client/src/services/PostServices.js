@@ -1,8 +1,10 @@
 import ApiClient from './ApiClient'
 
 export const __UploadPost = async (formData, userId) => {
+    console.log(formData, userId)
     try {
-        const res = await ApiClient.post(`/posts/${userId}/?active=true`, formData)
+        const res = await ApiClient.post(`/posts/${userId}/`, formData)
+        console.log(res.data)
         return res.data
     } catch (error) {
         throw error

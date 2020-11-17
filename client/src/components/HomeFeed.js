@@ -3,10 +3,11 @@ import StabBox from './StabBox'
 
 import '../styles/HomeFeed.css'
 
-export default () => {
+export default ({currentUser}) => {
+    console.log("from homefeed:", currentUser._id)
     return (
         <div className="HomeFeed-Container">
-            <StabBox />
+            <StabBox currentUser={currentUser}/>
         </div>
     )
 }

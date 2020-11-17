@@ -23,8 +23,6 @@ export default class SignIn extends Component {
         e.preventDefault()
         try {
             const loginData = await __LoginUser(this.state)
-            // console.log('login data user', loginData.user)
-            // returns the an object with _id and name
             this.props.toggleAuthenticated(true, loginData.user, () =>
                 this.props.history.push('/home')
             )

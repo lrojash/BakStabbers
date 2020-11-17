@@ -11,7 +11,6 @@ import '../../styles/SideBar.css'
 
 
 export default ({ authenticated, currentUser}) => {
-    console.log('authenticated: ', currentUser)
     return (
         <div className="SideBar-Container">
             <Link to="/" className="SideBar-Home">

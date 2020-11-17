@@ -9,7 +9,7 @@ export default class StabBox extends Component {
     constructor() {
         super()
         this.state = {
-            stab: ''
+            stab: '',
         }
 
     }
@@ -20,9 +20,8 @@ export default class StabBox extends Component {
         e.preventDefault()
         try {
             await __UploadPost(this.state, this.props.currentUser._id)
-            this.props.history.push('/home')
         } catch (error) {
-            console.log(error)
+            throw error 
         }
     }
     render() {

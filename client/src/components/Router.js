@@ -7,7 +7,8 @@ import Register from '../pages/Register'
 import SignIn from '../components/forms/SignIn'
 import SideBar from '../components/sidebar/SideBar'
 import SignUp from '../components/forms/SignUp'
-import StabBox from './StabBox'
+import StabBox from '../components/StabBox'
+import HomeFeed from '../components/HomeFeed'
 import { __CheckSession } from '../services/UserServices'
 
 
@@ -39,7 +40,7 @@ class Router extends Component {
                     },
                     () => this.props.history.push('/home')
                 )
-                console.log('current state', this.state)
+                console.log('current state', this.state.currentUser._id)
             } catch (error) {
                 this.setState({ currentUser: null, authenticated: false })
                 localStorage.clear()
@@ -85,13 +86,23 @@ class Router extends Component {
                                 {...props} />
                         )}
                     />
-                    <ProtectedRoute
+                    {/* <ProtectedRoute
                         authenticated={this.state.authenticated}
                         path="/SideBar"
                         component={(props) => (
                             <SideBar {...props} currentUser={this.state.currentUser} />
                         )}
-                    />
+                    /> */}
+                    {/* <ProtectedRoute
+                        authenticated={this.state.authenticated}
+                        path="/homefeed"
+                        component={(props) => (
+                            <HomeFeed
+                                currentUser={this.state.currentUser}
+                                authenticated={this.state.authenticated}
+                                {...props} />
+                        )}
+                    /> */}
                 </Switch>
             </main>
         )
