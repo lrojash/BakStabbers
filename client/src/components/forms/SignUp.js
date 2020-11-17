@@ -8,10 +8,10 @@ export default class SignUp extends Component {
         super()
         this.state = {
             name: '',
-            username: '',
+            userName: '',
             email: '',
             dob: '',
-            password_digest: '',
+            password: '',
         }
     }
     handleChange = ({ target }) => {
@@ -23,17 +23,17 @@ export default class SignUp extends Component {
         e.preventDefault()
         try {
             await __RegisterUser(this.state)
-            this.props.history.push('/login')
+            this.props.history.push('/')
         } catch (error) {
             throw error
         }
     }
 
     render() {
-        const { name, username, email, dob, password_digest } = this.state
+        const { name, userName, email, dob, password } = this.state
         return (
             <div className="SignUp-Container">
-                <form className="Register-Form">
+                <form className="Register-Form" onSubmit={this.handleSubmit}>
                     <TextInput
                         placeholder="Name"
                         name="name"
@@ -44,9 +44,9 @@ export default class SignUp extends Component {
                     />
                     <TextInput
                         placeholder="Username"
-                        name="username"
-                        type="username"
-                        value={username}
+                        name="userName"
+                        type="userName"
+                        value={userName}
                         onChange={this.handleChange}
                     />
                     <TextInput
@@ -65,9 +65,9 @@ export default class SignUp extends Component {
                     />
                     <TextInput
                         placeholder="Password"
-                        name="password_digest"
+                        name="password"
                         type="password"
-                        value={password_digest}
+                        value={password}
                         onChange={this.handleChange}
                     />
                     <button className="Sign-Up-Button">Sign Up</button>

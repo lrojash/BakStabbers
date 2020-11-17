@@ -20,6 +20,7 @@ const CreateUser = async (req, res) => {
     try {
         const body = req.body
         const password_digest = await generatePassword(body.password)
+        console.log(password_digest)
         const user = new User({
             name: body.name,
             email: body.email,

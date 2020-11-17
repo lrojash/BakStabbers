@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 import LandingPage from '../pages/LandingPage'
 import Home from '../pages/Home'
 import Register from '../pages/Register'
 import SignIn from '../components/forms/SignIn'
 import SideBar from '../components/sidebar/SideBar'
-import ProtectedRoute from './ProtectedRoute'
+import SignUp from '../components/forms/SignUp'
 import StabBox from './StabBox'
 import { __CheckSession } from '../services/UserServices'
 
@@ -57,7 +58,9 @@ class Router extends Component {
                         exact
                         path="/register"
                         component={(props) => (
-                            <Register {...props} />
+                            <Register>
+                                <SignUp {...props} />
+                            </Register>
                         )}
                     />
                     <Route

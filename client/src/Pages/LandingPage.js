@@ -1,5 +1,4 @@
 import React from 'react'
-import SignIn from '../components/forms/SignIn'
 import '../styles/LandingPage.css'
 import { useHistory } from 'react-router-dom'
 
