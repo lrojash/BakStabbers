@@ -1,24 +1,32 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import SideBarLayout from './SideBarLayout'
-import HomeIcon from '@material-ui/icons/Home'
 import FaceIcon from '@material-ui/icons/Face'
 import ForumIcon from '@material-ui/icons/Forum'
 import PeopleAltSharpIcon from '@material-ui/icons/PeopleAltSharp'
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import '../../styles/SideBar.css' 
+import { IconButton } from '@material-ui/core';
 
-export default () => {
+import '../../styles/SideBar.css'
+
+
+export default ({ authenticated, currentUser}) => {
+    console.log('authenticated: ', currentUser)
     return (
         <div className="SideBar-Container">
-            <div className="SideBar-Home">
-                <HomeIcon style={{ fontSize: 50 }}/>
-            </div>
+            <Link to="/" className="SideBar-Home">
+                <IconButton onClick={() => { localStorage.clear() }}>
+                    <ExitToAppOutlinedIcon style={{ fontSize: 50 }} text="logout" />
+                </IconButton>
+
+            </Link>
             <div className="SideBar">
-                <SideBarLayout Icon={FaceIcon} text="Profile"/>
+                <SideBarLayout Icon={FaceIcon} text="Profile" />
                 <SideBarLayout Icon={ForumIcon} text="Messages" />
                 <SideBarLayout Icon={PeopleAltSharpIcon} text="Connections" />
-                <SideBarLayout Icon={ExitToAppOutlinedIcon} text="Loggout" />
+                {/* <SideBarLayout Icon={ExitToAppOutlinedIcon} text="Logout" /> */}
             </div>
         </div>
     )
 }
+

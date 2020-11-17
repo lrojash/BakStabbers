@@ -3,7 +3,8 @@ import SignIn from '../components/forms/SignIn'
 import '../styles/LandingPage.css'
 import { useHistory } from 'react-router-dom'
 
-export default () => {
+export default ({children}) => {
+    // localStorage.clear()
     const history = useHistory()
     return (
         <div className="LandingPage-Container">
@@ -16,7 +17,8 @@ export default () => {
                 </p>
             </div>
             <div className="Access-Info">
-                <SignIn />
+                {children}
+                {/* <SignIn /> */}
                 <button className="Register-Button" onClick={() =>
                     history.push("/register")}>Sign Up</button>
             </div>

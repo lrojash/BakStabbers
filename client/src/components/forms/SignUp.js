@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../../components/TextInput'
+import { __RegisterUser } from '../../services/UserServices'
 import '../../styles/SignUp.css'
 
 export default class SignUp extends Component {
@@ -18,7 +19,15 @@ export default class SignUp extends Component {
             [target.name]: target.value
         })
     }
-    handleSubmit = () => { }
+    handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await __RegisterUser(this.state)
+            this.props.history.push('/login')
+        } catch (error) {
+            throw error
+        }
+    }
 
     render() {
         const { name, username, email, dob, password_digest } = this.state
