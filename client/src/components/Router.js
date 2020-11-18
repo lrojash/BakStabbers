@@ -40,7 +40,7 @@ class Router extends Component {
                     },
                     () => this.props.history.push('/home')
                 )
-                console.log('current state', this.state.currentUser._id)
+                // console.log('current state', this.state.currentUser._id)
             } catch (error) {
                 this.setState({ currentUser: null, authenticated: false })
                 localStorage.clear()

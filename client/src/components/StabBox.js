@@ -20,6 +20,9 @@ export default class StabBox extends Component {
         e.preventDefault()
         try {
             await __UploadPost(this.state, this.props.currentUser._id)
+            this.setState({
+                stab:''
+            })
         } catch (error) {
             throw error 
         }

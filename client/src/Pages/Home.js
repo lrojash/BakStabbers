@@ -6,8 +6,8 @@ import Trends from '../components/Trends'
 import '../styles/Home.css'
 
 export default ({ children, currentUser, authenticated }) => {
-    console.log("from home feed", currentUser._id)
-    console.log('from home feed', authenticated)
+    // console.log("from home feed", currentUser._id)
+    // console.log('from home feed', authenticated)
     return (
         <div className="Home-Container">
             <SideBar
