@@ -10,7 +10,7 @@ const GetProfile = async (req, res) => {
     try {
         const user = await User.findById(req.params.user_id).select('_id name')
         const posts = await Post.find({ user_id: req.params.user_id })
-        res.send({ user, posts })
+        res.send({ user, posts, })
     } catch (error) {
         throw error
     }
@@ -38,7 +38,18 @@ const ModPassword = async (req, res) => {
         const user = await User.findById(req.params.user_id).select('_id name')
         const body = req.body
         const password_digest = await generatePassword(body.password)
-        user.password_digest = password_digest 
+        user.password_digest = password_digest
+        user.save()
+        res.send(user)
+    } catch (error) {
+        throw error
+    }
+}
+const ModUsername = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.user_id).select('_id name')
+        const body = req.body
+        user.userName = body.userName
         user.save()
         res.send(user)
     } catch (error) {
@@ -66,8 +77,16 @@ const SignInUser = async (req, res, next) => {
         throw error
     }
 }
+const DeleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.user_id)
+        res.send({ msg: 'Account Deleted' })
+    } catch (error) {
+        throw error
+    }
+}
 
-const RefreshSession = (req, res) => {
+const RefreshSession = async (req, res) => {
     try {
         const token = res.locals.token
         res.send({ user: jwt.decode(token), token: res.locals.token })
@@ -82,5 +101,7 @@ module.exports = {
     CreateUser,
     SignInUser,
     RefreshSession,
-    ModPassword
+    ModPassword,
+    ModUsername,
+    DeleteUser
 }

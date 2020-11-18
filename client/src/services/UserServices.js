@@ -36,3 +36,28 @@ export const __LoginUser = async (userData) => {
         throw error
     }
 }
+export const __ModPassword = async (userId) => {
+    try {
+        const res = await ApiClient.put(`/users/${userId}/update`)
+        return res.data
+    } catch(error) {
+        throw error 
+    }
+}
+export const __ModUsername = async (userId) => {
+    try {
+        const res = await ApiClient.put(`/users/${userId}/update_username`)
+        return res.data
+    } catch(error) {
+        throw error 
+    }
+}
+
+export const __DeleteUser = async (userId) => {
+    try {
+        const res = await ApiClient.put(`/users/${userId}/delete`)
+        return res
+    } catch(error) {
+        throw error 
+    }
+}

@@ -10,6 +10,8 @@ Router.get('/:user_id', UserController.GetProfile)
 Router.post('/register', UserController.CreateUser)
 Router.post('/login', UserController.SignInUser, createToken)
 Router.put('/:user_id/update', UserController.ModPassword)
+Router.put('/:user_id/update_username', UserController.ModUsername)
+Router.delete('/:user_id/delete', UserController.DeleteUser)
 Router.get(
     '/refresh/session',
     getToken,
