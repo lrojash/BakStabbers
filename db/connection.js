@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-mongoose.connection(
-  process.env.NODE_ENV === 'production'
-    ? process.env.DATABASE_URL
-    : '<Your local db connection>'
-)
+// mongoose.connection(
+//   process.env.NODE_ENV === 'production'
+//     ? process.env.DATABASE_URL
+//     : '<Your local db connection>'
+// )
 
 
 
