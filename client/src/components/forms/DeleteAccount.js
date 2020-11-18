@@ -19,12 +19,13 @@ export default class DeleteAccount extends Component {
     }
     handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(this.props.currentUser._id)
         try {
-            if (this.confirm === "yes") {
-                await __DeleteUser(this.state.currentUser._id)
-                alert("Account Deleted")
-                this.props.history.push('/')
-            }
+
+            // await __DeleteUser(this.props.currentUser._id)
+            // alert("Account Deleted")
+            // this.props.history.push('/')
+
         } catch (error) {
             throw error
         }
