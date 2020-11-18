@@ -5,7 +5,7 @@ import LandingPage from '../pages/LandingPage'
 import Home from '../pages/Home'
 import Register from '../pages/Register'
 import SignIn from '../components/forms/SignIn'
-import SideBar from '../components/sidebar/SideBar'
+import Profile from '../pages/Profile'
 import SignUp from '../components/forms/SignUp'
 import StabBox from '../components/StabBox'
 import HomeFeed from '../components/HomeFeed'
@@ -86,23 +86,16 @@ class Router extends Component {
                                 {...props} />
                         )}
                     />
-                    {/* <ProtectedRoute
+                    <ProtectedRoute
                         authenticated={this.state.authenticated}
-                        path="/SideBar"
+                        path="/profile"
                         component={(props) => (
-                            <SideBar {...props} currentUser={this.state.currentUser} />
-                        )}
-                    /> */}
-                    {/* <ProtectedRoute
-                        authenticated={this.state.authenticated}
-                        path="/homefeed"
-                        component={(props) => (
-                            <HomeFeed
+                            <Profile
                                 currentUser={this.state.currentUser}
                                 authenticated={this.state.authenticated}
                                 {...props} />
                         )}
-                    /> */}
+                    />
                 </Switch>
             </main>
         )

@@ -10,19 +10,26 @@ import { IconButton } from '@material-ui/core';
 import '../../styles/SideBar.css'
 
 
-export default ({ authenticated, currentUser}) => {
+export default ({ authenticated, currentUser }) => {
     return (
         <div className="SideBar-Container">
             <Link to="/" className="SideBar-Home">
                 <IconButton onClick={() => { localStorage.clear() }}>
-                    <ExitToAppOutlinedIcon style={{ fontSize: 50 }} text="logout" />
+                    <ExitToAppOutlinedIcon style={{ fontSize: 50 }} />
+                    <h4>Loggout</h4>
                 </IconButton>
 
             </Link>
             <div className="SideBar">
-                <SideBarLayout Icon={FaceIcon} text="Profile" />
-                <SideBarLayout Icon={ForumIcon} text="Messages" />
-                <SideBarLayout Icon={PeopleAltSharpIcon} text="Connections" />
+                <Link to="/profile">
+                    <SideBarLayout Icon={FaceIcon} text="Profile" />
+                </Link>
+                <Link to="/messages">
+                    <SideBarLayout Icon={ForumIcon} text="Messages" />
+                </Link>
+                <Link to="Connections">
+                    <SideBarLayout Icon={PeopleAltSharpIcon} text="Connections" />
+                </Link>
                 {/* <SideBarLayout Icon={ExitToAppOutlinedIcon} text="Logout" /> */}
             </div>
         </div>
