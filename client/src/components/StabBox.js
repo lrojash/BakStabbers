@@ -23,6 +23,7 @@ export default class StabBox extends Component {
             this.setState({
                 stab:''
             })
+            
         } catch (error) {
             throw error 
         }

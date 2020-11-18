@@ -17,7 +17,9 @@ export default class ChangePassword extends Component {
     handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            await __ModPassword(this.props.currentUser._id)
             alert('Password Changed')
+            this.props.history.push('/home')
         } catch (error) {
             throw error
         }

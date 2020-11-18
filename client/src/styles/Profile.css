@@ -13,12 +13,21 @@
 }
 
 .set-buttons {
-    
-    display:flex;
+
+    display: flex;
     flex-direction: row;
 }
+
 .change-form {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    margin:5em;
+    margin: 5em;
+}
+
+.change-password:hover,
+.change-username:hover,
+.Delete:hover {
+    background-color: rgba(248, 0, 0, 0.697);
+    color: rgb(0, 0, 0);
+    cursor: pointer
 }
