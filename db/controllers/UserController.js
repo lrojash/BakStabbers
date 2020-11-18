@@ -20,7 +20,6 @@ const CreateUser = async (req, res) => {
     try {
         const body = req.body
         const password_digest = await generatePassword(body.password)
-        console.log(password_digest)
         const user = new User({
             name: body.name,
             email: body.email,
@@ -28,6 +27,18 @@ const CreateUser = async (req, res) => {
             userName: body.userName,
             password_digest
         })
+        user.save()
+        res.send(user)
+    } catch (error) {
+        throw error
+    }
+}
+const ModPassword = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.user_id).select('_id name')
+        const body = req.body
+        const password_digest = await generatePassword(body.password)
+        user.password_digest = password_digest 
         user.save()
         res.send(user)
     } catch (error) {
@@ -71,4 +82,5 @@ module.exports = {
     CreateUser,
     SignInUser,
     RefreshSession,
+    ModPassword
 }

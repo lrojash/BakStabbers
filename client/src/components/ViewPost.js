@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { __GetProfile } from '../services/UserServices'
+
 import '../styles/ViewPost.css'
 
 export default class ViewPost extends Component {
@@ -12,18 +13,14 @@ export default class ViewPost extends Component {
     }
     componentDidMount() {
         this.getPosts()
-        console.log('inside did mount vp')
+
     }
     getPosts = async () => {
         try {
             const profile = await __GetProfile(this.props.currentUser._id)
             const posts = profile.posts
-            console.log(posts)
+ 
             this.setState({ feed: posts })
-            console.log("inside get posts viewposts:", this.feed)
-            posts.map((element) => {
-                console.log(element.stab)
-            })
         } catch (error) {
             throw error
         }
@@ -46,7 +43,7 @@ export default class ViewPost extends Component {
                             </div>
                         </li>)
                     })}
-                    <div> works </div>
+                    
                 </div>
             )
         }
