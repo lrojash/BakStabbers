@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { __GetProfile } from '../services/UserServices'
+import '../styles/ViewPost.css'
 
 export default class ViewPost extends Component {
     constructor() {
@@ -33,13 +34,16 @@ export default class ViewPost extends Component {
         const { feed } = this.state
         if (feed) {
             return (
-                <div className="feed-container-vp"
-                    overflow="scroll">
+                <div className="feed-container-vp">
                     {feed.reverse().map((element, index) => {
                         return (<li key={index} className="stab-box">
                             <AccountCircleIcon style={{ fontSize: 45 }} />
-                            <p className="content">{element.stab}</p>
-
+                            <p className="content-stab">{element.stab}</p>
+                            <div className="stab-buttons">
+                                <button className="reply-bt">Reply</button>
+                                <button className="edit-bt">Edit</button>
+                                <button className="del-bt">Delete</button>
+                            </div>
                         </li>)
                     })}
                     <div> works </div>
