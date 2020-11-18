@@ -41,6 +41,52 @@
     color: rgb(0, 0, 0);
     cursor: pointer
 }
+
 .content-stab {
+    font-size: 1.5em;
+}
+
+.stab-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    justify-content: space-around;
+
+}
+
+.reply-bt {
+    border-radius: 45%;
+    background-color: rgb(139, 205, 205);
+    font-size: 1.75em;
+
+}
+
+.edit-bt {
+    border-radius: 45%;
+    background-color: rgb(139, 205, 205);
+    font-size: 1.75em;
+}
+
+.del-bt {
+    border-radius: 45%;
+    background-color: rgb(139, 205, 205);
+    font-size: 1.75em;
+}
+
+.reply-bt:hover {
+    background-color: rgb(140, 140, 236);
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.edit-bt:hover {
+    background-color: rgb(140, 140, 236);
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.del-bt:hover {
+    background-color: rgb(140, 140, 236);
+    cursor: pointer;
     font-size: 1.5em;
 }

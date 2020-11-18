@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import StabButtons from './forms/Stabs/StabButtons'
 import { __GetProfile } from '../services/UserServices'
 
 import '../styles/ViewPost.css'
@@ -19,7 +20,7 @@ export default class ViewPost extends Component {
         try {
             const profile = await __GetProfile(this.props.currentUser._id)
             const posts = profile.posts
- 
+
             this.setState({ feed: posts })
         } catch (error) {
             throw error
@@ -37,13 +38,16 @@ export default class ViewPost extends Component {
                             <AccountCircleIcon style={{ fontSize: 45 }} />
                             <p className="content-stab">{element.stab}</p>
                             <div className="stab-buttons">
-                                <button className="reply-bt">Reply</button>
+                                {/* <button className="reply-bt">Reply</button>
                                 <button className="edit-bt">Edit</button>
-                                <button className="del-bt">Delete</button>
+                                <button className="del-bt">Delete</button> */}
+                                <StabButtons
+                                    feed={feed}
+                                />
                             </div>
                         </li>)
                     })}
-                    
+
                 </div>
             )
         }
