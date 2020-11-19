@@ -17,7 +17,7 @@ export default class EditPost extends Component {
     }
     handleSubmit = async (e) => {
         try {
-            await __UpdatePost(this.state, this.props.feed[0]._id)
+            await __UpdatePost(this.state, this.props.feed[this.props.feed.length -1]._id)
             alert('Stab Updated')
         } catch (error) {
             throw error
