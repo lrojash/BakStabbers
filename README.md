@@ -21,11 +21,8 @@ The website allows for users to display their true feelings about ideas and subj
 * Mongoose
 * MongoDB
 
-***
 
 <!-- diagram the shows relationships between models entity relationship diagram -->
-### Wireframe
-![wireframe](./images_readme/frontpagewireframe.png)
 
 ***
 ### Getting Started
@@ -37,9 +34,38 @@ The user will need to create an account to gain access to the site, due to the n
 
 ### Component Hierarchy Diagram
 ![CHD](./images_readme/components.png)
+***
+## Screenshots
 
+The user will be welcome to a landing page where a brief intro to the app is given:
+![intro](./images_readme/Landing_page.png)
+
+If the user does not have an account they can click on the 'Sign Up' button to gain access.
+
+![register](./images_readme/Register_page.png)
+
+Once logged in the user will be directed to their home page.
+
+![home](./images_readme/Home_page.png).
+
+The user can now add a 'STAB'. (Currently the user can only edit/delete on the most current stab listed on the page. Stay tuned for future updates)
+
+![edit](./images_readme/Edit_post.png)
+
+The user also has access to 'Profile', 'Messages', 'Connections'.(stay tuned for updates regarding Messages and Connections)
+
+In Profile the user can modify their settings, password, username, and delete their account.
+![profile](./images_readme/Profile_settings.png))
+***
 ### Tracking
 [Trello](https://trello.com/b/VO6MigFu/bakstabbers)
+***
+## Future Updates
+ * Messages
+ * Search User
+ * Connections
+ * Replies
+ * Specific 'stab' functionality
 
 <!-- ***  -->
 <!-- ### Screenshots
