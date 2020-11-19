@@ -17,7 +17,7 @@ export default class StabBox extends Component {
         this.setState({ [target.name]: target.value })
     }
     handleSubmit = async (e) => {
-        e.preventDefault()
+        
         try {
             await __UploadPost(this.state, this.props.currentUser._id)
             this.setState({

@@ -11,10 +11,12 @@ export default class Delete extends Component {
             stabId: ''
         }
     }
-    handleSubmit = async () => {
+    handleSubmit = async (e) => {
+       
         try {
             await __DeletePost(this.props.feed[this.props.feed.length -1]._id)
             alert('Stab deleted')
+            window.location.reload(false);
         } catch (error) {
             throw error
         }
