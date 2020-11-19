@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { __UpdatePost } from '../../../services/PostServices'
 import TextInput from '../../TextInput'
-import '../../../styles/StabBox.css'
+import '../../../styles/EditPost.css'
 
 
 
@@ -27,15 +27,15 @@ export default class EditPost extends Component {
     render() {
         const { stab } = this.state
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="edit-post-container">
+                <form onSubmit={this.handleSubmit} className='edit-form'>
                     <TextInput
                         placeholder="Stab"
                         name="stab"
                         value={stab}
                         onChange={this.handleChange}
                     />
-                    <button>Stab</button>
+                    <button className="edit-button">Stab</button>
                 </form>
             </div>
         )
