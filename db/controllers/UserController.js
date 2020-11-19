@@ -10,7 +10,8 @@ const GetProfile = async (req, res) => {
     try {
         const user = await User.findById(req.params.user_id).select('_id name')
         const posts = await Post.find({ user_id: req.params.user_id })
-        res.send({ user, posts, })
+        const userName = await User.findById(req.params.user_id).select('userName')
+        res.send({ user, posts, userName })
     } catch (error) {
         throw error
     }
@@ -45,9 +46,10 @@ const ModPassword = async (req, res) => {
         throw error
     }
 }
+
 const ModUsername = async (req, res) => {
     try {
-        const user = await User.findById(req.params.user_id).select('_id name')
+        const user = await User.findById(req.params.user_id)
         const body = req.body
         user.userName = body.userName
         user.save()
@@ -67,7 +69,8 @@ const SignInUser = async (req, res, next) => {
         ) {
             const payload = {
                 _id: user._id,
-                name: user.name
+                name: user.name,
+                userName: user.userName
             }
             res.locals.payload = payload
             return next()

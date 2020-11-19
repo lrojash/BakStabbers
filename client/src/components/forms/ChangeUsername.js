@@ -18,7 +18,7 @@ export default class ChangeUsername extends Component {
         e.preventDefault()
         console.log(this.props.currentUser._id)
         try {
-            await __ModUsername(this.props.currentUser._id)
+            await __ModUsername(this.props.currentUser._id, this.state)
             alert('Username Changed')
             
         } catch (error) {

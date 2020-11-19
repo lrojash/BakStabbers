@@ -11,16 +11,6 @@ export const __UploadPost = async (formData, userId) => {
     }
 }
 
-export const __GetPosts = async (page, limit) => {
-    try {
-        const res = await ApiClient.get(
-            `/posts?page=${page || 1}&limit=${limit || 10}`
-        )
-        return res.data
-    } catch (error) {
-        throw error
-    }
-}
 
 export const __GetPost = async (postId) => {
     try {
@@ -33,8 +23,7 @@ export const __GetPost = async (postId) => {
 
 export const __UpdatePost = async (formData, postId) => {
     try {
-        const res = await ApiClient.put(`/posts/${postId}`, formData)
-        console.log(res.data)
+        const res = await ApiClient.put(`/posts/update/${postId}`, formData)
         return res.data
     } catch (error) {
         throw error
@@ -43,7 +32,7 @@ export const __UpdatePost = async (formData, postId) => {
 
 export const __DeletePost = async (postId) => {
     try {
-        const res = await ApiClient.delete(`/posts/${postId}?active=true`)
+        const res = await ApiClient.delete(`/posts/delete/${postId}`)
         return res
     } catch (error) {
         throw error

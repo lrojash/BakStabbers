@@ -11,27 +11,12 @@ export default class EditPost extends Component {
             stab: ''
         }
     }
-
-    handleSubmit = async (e) => {
-        const feedId = this.props.feed[this.props.feed.length - 1]
-        alert('edit')
-        try {
-            await __UpdatePost(this.state, feedId)
-            this.setState({
-                stab: ''
-            })
-        } catch (error) {
-            throw error
-        }
-        
-    }
-
     render() {
         const { stab } = this.state
         return (
             <div>
-                <button className="edit-bt" onClick={this.handleSubmit}>Edit</button>
-                <PopUp stab = {stab} />
+                {/* <button className="edit-bt" onClick={this.handleSubmit}>Edit</button> */}
+                <PopUp stab={stab} />
             </div >
         )
     }

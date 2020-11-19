@@ -13,7 +13,6 @@ export default class Delete extends Component {
     }
     handleSubmit = async () => {
         try {
-    
             await __DeletePost(this.props.feed[this.props.feed.length -1]._id)
             alert('Stab deleted')
         } catch (error) {
@@ -22,7 +21,6 @@ export default class Delete extends Component {
     }
 
     render() {
-        // console.log(this.props.feed[1]._id)
         return (
             <div>
                 <button className="del-bt" onClick={this.handleSubmit}>Delete</button>

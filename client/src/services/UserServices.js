@@ -44,9 +44,9 @@ export const __ModPassword = async (userId) => {
         throw error 
     }
 }
-export const __ModUsername = async (userId) => {
+export const __ModUsername = async (userId, formData) => {
     try {
-        const res = await ApiClient.put(`/users/${userId}/update_username`)
+        const res = await ApiClient.put(`/users/${userId}/update_username`, formData)
         return res.data
     } catch(error) {
         throw error 

@@ -6,11 +6,9 @@ import PopUp from '../PopUp'
 import '../../../styles/StabBox.css'
 
 export default ({ feed }) => {
-    console.log("coming from stabbutton js:", feed)
     return (
         <div className="StabBox-Container">
             <PopUp feed={feed} />
-            {/* <EditPost feed={feed} /> */}
             <ReplyPost feed={feed} />
             <DeletePost feed={feed} />
         </div>
