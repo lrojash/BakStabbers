@@ -36,9 +36,9 @@ export const __LoginUser = async (userData) => {
         throw error
     }
 }
-export const __ModPassword = async (userId) => {
+export const __ModPassword = async (userId, userData) => {
     try {
-        const res = await ApiClient.put(`/users/${userId}/update`)
+        const res = await ApiClient.put(`/users/${userId}/update_password`, userData)
         return res.data
     } catch(error) {
         throw error 

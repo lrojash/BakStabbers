@@ -10,7 +10,8 @@ import SignUp from '../components/forms/SignUp'
 import StabBox from '../components/StabBox'
 import HomeFeed from '../components/HomeFeed'
 import { __CheckSession } from '../services/UserServices'
-
+import Messages from '../pages/Messages'
+import Connections from '../pages/Connections'
 
 
 
@@ -91,6 +92,26 @@ class Router extends Component {
                         path="/profile"
                         component={(props) => (
                             <Profile
+                                currentUser={this.state.currentUser}
+                                authenticated={this.state.authenticated}
+                                {...props} />
+                        )}
+                    />
+                    <ProtectedRoute
+                        authenticated={this.state.authenticated}
+                        path="/messages"
+                        component={(props) => (
+                            <Messages
+                                currentUser={this.state.currentUser}
+                                authenticated={this.state.authenticated}
+                                {...props} />
+                        )}
+                    />
+                    <ProtectedRoute
+                        authenticated={this.state.authenticated}
+                        path="/connections"
+                        component={(props) => (
+                            <Connections
                                 currentUser={this.state.currentUser}
                                 authenticated={this.state.authenticated}
                                 {...props} />

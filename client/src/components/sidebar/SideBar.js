@@ -24,7 +24,7 @@ export default ({ authenticated, currentUser }) => {
                 <Link to="/profile">
                     <SideBarLayout Icon={FaceIcon} text="Profile" />
                 </Link>
-                <Link to="/messages">
+                <Link to="/Messages">
                     <SideBarLayout Icon={ForumIcon} text="Messages" />
                 </Link>
                 <Link to="Connections">

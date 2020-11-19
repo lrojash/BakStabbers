@@ -46,7 +46,6 @@ export default class StabBox extends Component {
                         />
                         <button className="Stab-Button">Stab</button>
                     </form>
-
                 </div>
             </div>
         )

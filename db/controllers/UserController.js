@@ -36,7 +36,7 @@ const CreateUser = async (req, res) => {
 }
 const ModPassword = async (req, res) => {
     try {
-        const user = await User.findById(req.params.user_id).select('_id name')
+        const user = await User.findById(req.params.user_id)
         const body = req.body
         const password_digest = await generatePassword(body.password)
         user.password_digest = password_digest

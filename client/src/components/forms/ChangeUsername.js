@@ -15,7 +15,6 @@ export default class ChangeUsername extends Component {
         })
     }
     handleSubmit = async (e) => {
-        e.preventDefault()
         console.log(this.props.currentUser._id)
         try {
             await __ModUsername(this.props.currentUser._id, this.state)
