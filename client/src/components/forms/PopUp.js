@@ -30,7 +30,7 @@ export default class PopUp extends Component {
             <section>
                 <button className="edit-bt" onClick={() => this.openModal()}>Edit</button>
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
-                    {/* <EditPost /> */}
+                    <EditPost {...this.props}/>
                 </Modal>
             </section>
         );
