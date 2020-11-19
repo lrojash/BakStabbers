@@ -1,5 +1,5 @@
 const { post } = require('../models/User')
-const { Post, User, Reply } = require('../schema')
+const { Post, Reply } = require('../schema')
 
 const GetPosts = async (req, res) => {
     try {
@@ -55,22 +55,16 @@ const DeletePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
     try {
-        await Post.findByIdAndUpdate(
-            req.params.post_id,
-            {
-                ...req.body
-            },
-            {
-                new: true,
-                userFindAndModify: false
-            },
-            (err, (d) => (err ? err : res.send(d)))
-        )
+      await Post.findByIdAndUpdate(
+        req.params.post_id,
+        { ...req.body },
+        { upsert: true, new: true },
+        (err, d) => (err ? err : res.send(d))
+      )
     } catch (error) {
-        throw error
+      throw error
     }
-}
-
+  }
 module.exports = {
     GetPosts,
     GetPostById,

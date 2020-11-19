@@ -6,14 +6,14 @@ export default ({ currentUser, }) => {
     return (
         <div className="StabBox">
             <AccountCircleIcon style={{ fontSize: 50 }} />
-            <form className="stabs" onSubmit={this.handleSubmit}>
+            <form className="stabs">
                 <TextInput
                     placeholder="Stab"
                     name="stab"
                     value={stab}
                     onChange={this.handleChange}
                 />
-                <button className="Stab-Button">Stab</button>
+                <button className="Stab-Button" onCLick>Stab</button>
             </form>
 
         </div>

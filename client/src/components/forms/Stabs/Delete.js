@@ -14,7 +14,7 @@ export default class Delete extends Component {
     handleSubmit = async () => {
         try {
     
-            await __DeletePost(this.props.feed[0]._id)
+            await __DeletePost(this.props.feed[this.props.feed.length -1]._id)
             alert('Stab deleted')
         } catch (error) {
             throw error
